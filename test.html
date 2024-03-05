@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 30px;
+        }
+
+        .plus-minus-toggle {
+            cursor: pointer;
+            height: 21px;
+            position: relative;
+            width: 21px;
+        }
+
+        .plus-minus-toggle::before,
+        .plus-minus-toggle::after {
+            background: #000;
+            content: '';
+            height: 5px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 21px;
+            transition: transform 500ms ease;
+        }
+
+        .plus-minus-toggle:after {
+            transform-origin: center;
+        }
+
+        .plus-minus-toggle.collapsed:after {
+            transform: rotate(90deg);
+        }
+
+        .plus-minus-toggle.collapsed:before {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="plus-minus-toggle collapsed"></div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        // Wait for the document to be ready
+        $(document).ready(function () {
+            $('.plus-minus-toggle').on('click', function () {
+                $(this).toggleClass('collapsed');
+            });
+        });
+    </script>
+</body>
+
+</html>
